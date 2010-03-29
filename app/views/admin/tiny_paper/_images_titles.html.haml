@@ -6,21 +6,21 @@
       #view_mode
         - form_tag({}, {:id => "view_mode_form", :method => :get}) do
           = hidden_field_tag :page, '1'
-          %label{:for => :view} View mode:
-          = select_tag :view, options_for_select([["Text List", "text_list"], ["Thumbnails", "thumbnails"]],list_params[:view])
+          %label{:for => :view}= t('tiny_paper.view_mode')
+          = select_tag :view, options_for_select([[t('tiny_paper.text_list'), "text_list"], [t('tiny_paper.thumbnails'), "thumbnails"]],list_params[:view])
       #sort_dv
         - form_tag({}, {:id => "sort_form", :method => :get}) do
           = hidden_field_tag :sort_by, 'title'
-          %label{:for => :sort_order} Sort by title:
-          = select_tag :sort_order, options_for_select([["Ascending", "asc"], ["Descending", "desc"]],list_params[:sort_order])
+          %label{:for => :sort_order}= t('tiny_paper.sort_by_title')
+          = select_tag :sort_order, options_for_select([[t('tiny_paper.asc'), "asc"], [t('tiny_paper.desc'), "desc"]],list_params[:sort_order])
   #titles_holder
     - index = (list_params[:page].to_i - 1) * 25
     %table#assets.assets_list
       %thead
         %tr
-          %th No.
-          %th Image title
-          %th Image size
+          %th= t('tiny_paper.number')
+          %th= t('tiny_paper.image.title')
+          %th= t('tiny_paper.image.size')
       %tbody
         - @assets.each do |asset|
           - index = index + 1
@@ -34,4 +34,4 @@
             %td= asset.width.to_s + 'px x ' + asset.height.to_s + 'px'
         -if @assets.empty?
           %tr
-            %td.no_results{:colspan => 4} No results!
+            %td.no_results{:colspan => 4}= t('tiny_paper.no_results')

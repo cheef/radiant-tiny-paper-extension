@@ -2,13 +2,13 @@
   #top.clearfix
     .left
       %ul.clearfix
-        %li= link_to "Files", files_path, :class => "selected"
-        %li= link_to "Pages", pages_path
+        %li= link_to t('tiny_paper.files'), files_path, :class => "selected"
+        %li= link_to t('tiny_paper.pages'), pages_path
       - form_tag({}, {:id => "filter_form", :method => :get}) do
         %table
           %tr
             %td
-              %label{:for => 'title'} Filter
+              %label{:for => 'title'}= t('tiny_paper.filter')
             %td
               #filter
                 = text_field_tag :title, list_params[:title], :autocomplete => 'off'
@@ -25,7 +25,7 @@
                   })
                 = reset_filters_tag
             %td
-              %img{:id => "spinner", :style => "display:none",  :src => "/images/admin/spinner.gif", :alt => "loading"}
+              %img{:id => "spinner", :style => "display:none",  :src => "/images/admin/spinner.gif", :alt => t('tiny_paper.loading')}
     .right
       = render :partial => "upload"
   

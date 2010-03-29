@@ -19,7 +19,10 @@ class TinyPaperExtension < Radiant::Extension
     TinyMceFilter
     Asset.class_eval { include TinyPaper::AssetExtensions }
     Admin::PagesController.class_eval { include TinyPaper::AddJavascriptsAndStyles }   
-  	admin.page.edit.add :part_controls, "admin/page/tiny_mce_control"
+    Admin::SnippetsController.class_eval { include TinyPaper::AddJavascriptsAndStyles }
+
+  	admin.page.edit.add :part_controls, 'tiny_mce_control'
+  	admin.snippet.edit.add :form, "tiny_mce_control", :after => 'edit_filter'
   end
   
   def deactivate

@@ -1,12 +1,12 @@
 = link_to 'Cancel', '#', :onclick => "$(this).up('.image_sizes').hide(); return false;", :class => "cancel_image_sizes"
-%h4 Choose size
+%h4= t('tiny_paper.choose_size')
 %p= asset.title
 %div
   %table#sizes
     - @thumbnails.each do |k, v|
       %tr
-        %th= link_to k, asset.asset.url(k)
+        %th= link_to t('tiny_paper.sizes.' + k.to_s), asset.asset.url(k)
         %td= asset.width(k).to_s + 'px x ' + asset.height(k).to_s + 'px'
     %tr
-      %th= link_to "original", asset.asset.url
+      %th= link_to t('tiny_paper.sizes.original'), asset.asset.url
       %td= asset.width.to_s + 'px x ' + asset.height.to_s + 'px'

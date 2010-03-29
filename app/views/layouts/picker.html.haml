@@ -3,7 +3,7 @@
     %meta{"http-equiv"=>"Content-type", :content=>"text/html; charset=utf-8"}/
     %title
       = params[:action].singularize.titleize
-      Browser
+      = t('tiny_paper.browser')
     - @stylesheets.uniq.each do |stylesheet|
       = stylesheet_link_tag stylesheet
     - @javascripts.uniq.each do |javascript|

@@ -1,0 +1,6 @@
+:javascript
+  Event.addBehavior({
+    '#part_#{page_part.name}_filter_id': function() {
+      new TinyMCEEditor('part_#{page_part.name}_content', this);
+    }
+  });

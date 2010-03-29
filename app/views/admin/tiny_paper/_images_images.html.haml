@@ -6,24 +6,24 @@
       #view_mode
         - form_tag({}, {:id => "view_mode_form", :method => :get}) do
           = hidden_field_tag :page, '1'
-          %label{:for => :view} View mode:
-          = select_tag :view, options_for_select([["Text List", "text_list"], ["Thumbnails", "thumbnails"]],list_params[:view])
+          %label{:for => :view}= t('tiny_paper.view_mode')
+          = select_tag :view, options_for_select([[t('tiny_paper.text_list'), "text_list"], [t('tiny_paper.thumbnails'), "thumbnails"]],list_params[:view])
       #sort_dv
         - form_tag({}, {:id => "sort_form", :method => :get}) do
           = hidden_field_tag :sort_by, 'title'
-          %label{:for => :sort_order} Sort by title:
-          = select_tag :sort_order, options_for_select([["Ascending", "asc"], ["Descending", "desc"]],list_params[:sort_order])
+          %label{:for => :sort_order}= t('tiny_paper.sort_by_title')
+          = select_tag :sort_order, options_for_select([[t('tiny_paper.asc'), "asc"], [t('tiny_paper.desc'), "desc"]],list_params[:sort_order])
   #assets_holder
     %ul#assets.asset_images.clearfix
       - @assets.each do |asset|
         %li
           %a{:href => '#'}
             %span.asset_image
-              %img{:src => asset.thumbnail(:thumbnail), :style => asset.height(:thumbnail) > 0 ? "padding-top:#{(95 - asset.height(:thumbnail))/2}px" : nil }
+              %img{:src => asset.thumbnail(:thumbnail), :style => (asset.height(:thumbnail) > 0 ? "padding-top:#{(95 - asset.height(:thumbnail))/2}px" : nil) }
             %span.asset_title
               = truncate(asset.title, :length => 16)
               
           %span.image_sizes{:style => "display:none;"}
             = render :partial => 'images_sizes', :locals => {:asset => asset}
       -if @assets.empty?
-        %li.no_results No results!
+        %li.no_results= t('tiny_paper.no_results')

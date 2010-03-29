@@ -1,26 +1,36 @@
-function instantiateEditor(partIndex){
-  var usedFilter = $('part_' + partIndex +'_filter_id');
-  if(usedFilter.value == 'Rich Text Editor'){
-    addEditor(partIndex);
+var TinyMCEEditor = Class.create({
+
+  initialize: function(textarea, trigger) {
+
+    var self = this;
+
+    this.textarea = textarea;
+    this.trigger  = $(trigger);
+    this.trigger.observe('change', function() {
+      self.toggle(this);
+    });
+
+    Event.observe(window, 'load', function() {
+      if (self.isRichTextEditor(self.trigger)) {
+        self.enable();
+      }
+    });
+  },
+
+  toggle: function(trigger) {
+    this.isRichTextEditor(trigger) ? this.enable() : this.disable();
+  },
+
+  isRichTextEditor: function(trigger) {
+    return trigger.value == 'Rich Text Editor';
+  },
+
+  enable: function() {
+    tinyMCE.execCommand('mceAddControl', false, $(this.textarea));
+  },
+
+  disable: function() {
+    tinyMCE.execCommand('mceRemoveControl', false, $(this.textarea));
   }
-}
 
-function toggleEditor(partIndex){
-  var filterId = $('part_' + partIndex + '_filter_id');
-  if(filterId.value == 'Rich Text Editor'){
-    addEditor(partIndex)
-  }
-  else{
-    removeEditor(partIndex)
-  } 
-}
-
-function removeEditor(partIndex){
-  var usedTextArea = $('part_' + partIndex + '_content')
-  tinyMCE.execCommand('mceRemoveControl', false, usedTextArea ); 
-}
-
-function addEditor(partIndex){
-  var usedTextArea = $('part_' + partIndex + '_content')  
-  tinyMCE.execCommand('mceAddControl', false, usedTextArea);   
-}
+});

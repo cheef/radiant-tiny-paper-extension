@@ -4,12 +4,12 @@
     %table.form
       %tr
         %th
-          %label{:for => 'asset_title'} Title:
+          %label{:for => 'asset_title'}= t('tiny_paper.title')
         %td= f.text_field :title
       %tr
         %th
-          %label{:for => 'asset_asset'} Choose a file to upload:
+          %label{:for => 'asset_asset'}= t('tiny_paper.choose_file')
         %td= f.file_field :asset, :size => 20
       %tr
         %th &nbsp;
-        %td= submit_tag "Upload"
+        %td= submit_tag t('tiny_paper.upload')
