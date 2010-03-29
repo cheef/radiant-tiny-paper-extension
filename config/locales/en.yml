@@ -1,0 +1,34 @@
+---
+en:
+  tiny_paper:
+    no_results: 'No results!'
+    file:
+      name: 'File name'
+      type: 'File type'
+      size: 'File size'
+    asc: 'Ascending'
+    desc: 'Descending'
+    view_mode: 'View mode:'
+    sort_by_title: 'Sort by title:'
+    choose_size: 'Choose size'
+    image:
+      title: 'Image title'
+      size: 'Image size'
+    thumbnails: 'Thumbnails'
+    text_list: 'Text list'
+    title: 'Title'
+    choose_file: 'Choose a file to upload:'
+    upload: 'Upload'
+    files: 'Files'
+    pages: 'Pages'
+    filter: 'Filter:'
+    loading: 'loading'
+    choose_page: 'Choose a page to create a direct link to it:'
+    browser: 'Browser'
+    sizes:
+      icon: 'icon'
+      medium: 'medium'
+      normal: 'normal'
+      thumbnail: 'thumbnail'
+      original: 'original'
+    number: 'No.'

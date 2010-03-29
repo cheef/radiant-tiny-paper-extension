@@ -1,0 +1,34 @@
+---
+ru:
+  tiny_paper:
+    no_results: 'Нет результатов!'
+    file:
+      name: 'Название файла'
+      type: 'Тип файла'
+      size: 'Размер файла'
+    asc: 'Возрастанию'
+    desc: 'Убыванию'
+    view_mode: 'Режим:'
+    sort_by_title: 'Сортировать по заголовку:'
+    choose_size: 'Выбрать размер'
+    image:
+      title: 'Название изображения'
+      size: 'Размер изображения'
+    thumbnails: 'В виде thumbnails'
+    text_list: 'В виде текста'
+    title: 'Заголовок'
+    choose_file: 'Выберите файл для загрузки:'
+    upload: 'Загрузить'
+    files: 'Файлы'
+    pages: 'Страницы'
+    filter: 'Фильтр:'
+    loading: 'загрузка'
+    choose_page: 'Выбрать страницу, для того, чтобы создать прямую ссылку на неё:'
+    browser: 'Browser'
+    sizes:
+      icon: 'иконка'
+      medium: 'среднее'
+      normal: 'нормальное'
+      thumbnail: 'thumbnail'
+      original: 'оригинальное'
+    number: 'Номер'
