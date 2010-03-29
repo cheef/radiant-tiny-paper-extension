@@ -1,6 +1,13 @@
 Radiant Tiny-Paper Extension
 ===
 
+About this fork
+---
+* Added I18n branch with en/ru localizations
+* `Rich Text Editor` filter now working on snippet page
+* Added TinyMCE plugin radiant_tags (radius tags now not broke by TinyMCE)
+* Changed TinyMCE toggling script
+
 About
 ---
 
